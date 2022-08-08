@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct Auth0DemoAppApp: App {
+    let appRouterViewModel = AppRouterViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppRouter(appRouterViewModel: appRouterViewModel)
         }
     }
 }

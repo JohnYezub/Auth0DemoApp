@@ -11,6 +11,17 @@
 		777E060628A0C4D200C0C541 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E060528A0C4D200C0C541 /* ContentView.swift */; };
 		777E060828A0C4D400C0C541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777E060728A0C4D400C0C541 /* Assets.xcassets */; };
 		777E060B28A0C4D400C0C541 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777E060A28A0C4D400C0C541 /* Preview Assets.xcassets */; };
+		777E061328A0C65E00C0C541 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = 777E061228A0C65E00C0C541 /* Auth0 */; };
+		777E061528A0C69300C0C541 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E061428A0C69300C0C541 /* ProfileView.swift */; };
+		777E061728A0C6B500C0C541 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E061628A0C6B500C0C541 /* UserModel.swift */; };
+		777E061928A0C81300C0C541 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E061828A0C81300C0C541 /* AuthView.swift */; };
+		777E061B28A0C89D00C0C541 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E061A28A0C89D00C0C541 /* AuthViewModel.swift */; };
+		777E061D28A0C9D300C0C541 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E061C28A0C9D300C0C541 /* AuthService.swift */; };
+		777E061F28A0D63D00C0C541 /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E061E28A0D63D00C0C541 /* ViewModelFactory.swift */; };
+		777E062228A0DC3A00C0C541 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E062128A0DC3A00C0C541 /* ViewExtensions.swift */; };
+		777E062428A0E18900C0C541 /* DefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E062328A0E18900C0C541 /* DefaultStorage.swift */; };
+		777E062628A0FE6300C0C541 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E062528A0FE6300C0C541 /* AppRouter.swift */; };
+		777E062828A0FE8100C0C541 /* AppRouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E062728A0FE8100C0C541 /* AppRouterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +30,16 @@
 		777E060528A0C4D200C0C541 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		777E060728A0C4D400C0C541 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		777E060A28A0C4D400C0C541 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		777E061428A0C69300C0C541 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		777E061628A0C6B500C0C541 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		777E061828A0C81300C0C541 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		777E061A28A0C89D00C0C541 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		777E061C28A0C9D300C0C541 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		777E061E28A0D63D00C0C541 /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
+		777E062128A0DC3A00C0C541 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		777E062328A0E18900C0C541 /* DefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStorage.swift; sourceTree = "<group>"; };
+		777E062528A0FE6300C0C541 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		777E062728A0FE8100C0C541 /* AppRouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777E061328A0C65E00C0C541 /* Auth0 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +75,16 @@
 			children = (
 				777E060328A0C4D200C0C541 /* Auth0DemoAppApp.swift */,
 				777E060528A0C4D200C0C541 /* ContentView.swift */,
+				777E061428A0C69300C0C541 /* ProfileView.swift */,
+				777E061628A0C6B500C0C541 /* UserModel.swift */,
+				777E061828A0C81300C0C541 /* AuthView.swift */,
+				777E061A28A0C89D00C0C541 /* AuthViewModel.swift */,
+				777E061C28A0C9D300C0C541 /* AuthService.swift */,
+				777E061E28A0D63D00C0C541 /* ViewModelFactory.swift */,
+				777E062128A0DC3A00C0C541 /* ViewExtensions.swift */,
+				777E062328A0E18900C0C541 /* DefaultStorage.swift */,
+				777E062528A0FE6300C0C541 /* AppRouter.swift */,
+				777E062728A0FE8100C0C541 /* AppRouterViewModel.swift */,
 				777E060728A0C4D400C0C541 /* Assets.xcassets */,
 				777E060928A0C4D400C0C541 /* Preview Content */,
 			);
@@ -83,6 +115,9 @@
 			dependencies = (
 			);
 			name = Auth0DemoApp;
+			packageProductDependencies = (
+				777E061228A0C65E00C0C541 /* Auth0 */,
+			);
 			productName = Auth0DemoApp;
 			productReference = 777E060028A0C4D200C0C541 /* Auth0DemoApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +146,9 @@
 				Base,
 			);
 			mainGroup = 777E05F728A0C4D200C0C541;
+			packageReferences = (
+				777E061128A0C65E00C0C541 /* XCRemoteSwiftPackageReference "Auth0" */,
+			);
 			productRefGroup = 777E060128A0C4D200C0C541 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,7 +176,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				777E060628A0C4D200C0C541 /* ContentView.swift in Sources */,
+				777E061928A0C81300C0C541 /* AuthView.swift in Sources */,
+				777E061B28A0C89D00C0C541 /* AuthViewModel.swift in Sources */,
+				777E062428A0E18900C0C541 /* DefaultStorage.swift in Sources */,
+				777E061528A0C69300C0C541 /* ProfileView.swift in Sources */,
+				777E062828A0FE8100C0C541 /* AppRouterViewModel.swift in Sources */,
+				777E062228A0DC3A00C0C541 /* ViewExtensions.swift in Sources */,
+				777E061728A0C6B500C0C541 /* UserModel.swift in Sources */,
+				777E062628A0FE6300C0C541 /* AppRouter.swift in Sources */,
+				777E061F28A0D63D00C0C541 /* ViewModelFactory.swift in Sources */,
 				777E060428A0C4D200C0C541 /* Auth0DemoAppApp.swift in Sources */,
+				777E061D28A0C9D300C0C541 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +387,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		777E061128A0C65E00C0C541 /* XCRemoteSwiftPackageReference "Auth0" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/Auth0.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		777E061228A0C65E00C0C541 /* Auth0 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 777E061128A0C65E00C0C541 /* XCRemoteSwiftPackageReference "Auth0" */;
+			productName = Auth0;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 777E05F828A0C4D200C0C541 /* Project object */;
 }
