@@ -19,6 +19,9 @@ class AppRouterViewModel: ObservableObject {
 
     init() {
         let authViewModel = ViewModelFactory.makeAuthViewModel()
+        authViewModel.onSuccess = { [weak self] auth0User in
+            self?.appScreen = .main
+        }
         appScreen = .auth(viewModel: authViewModel)
     }
 }
