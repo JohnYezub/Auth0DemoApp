@@ -32,4 +32,13 @@ struct Auth0User {
         self.picture = picture
         self.updatedAt = updatedAt
     }
+
+    init(id: String, name: String, email: String, emailVerified: String, picture: String, updatedAt: String) {
+        self.id = id
+        self.name = name
+        self.email = email
+        self.emailVerified = emailVerified
+        self.picture = picture
+        self.updatedAt = updatedAt
+    }
 }

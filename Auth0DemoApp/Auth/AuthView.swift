@@ -29,6 +29,7 @@ struct AuthView: View {
                     .padding(.horizontal, 16)
                     .padding(.vertical, 4)
                     .background(Color.white)
+                    .transition(.opacity)
             default:
                 EmptyView()
             }
@@ -39,6 +40,7 @@ struct AuthView: View {
             } label: {
                 Text("\(authViewModel.accessType.rawValue)")
                     .foregroundColor(.white)
+                    .animation(nil)
             }
 
             // Switcher bewtween SignIn and SignUp
@@ -47,17 +49,20 @@ struct AuthView: View {
             } label: {
                 Text("Switch to \(authViewModel.accessType.rawValue)")
                     .foregroundColor(.white)
+                    .animation(nil)
             }
 
         }
         .padding(.horizontal, 16)
         .backgroundIgnoredSafeArea(Color.blue)
         .overlay {
-            ZStack(alignment: .top) {
-                Text(authViewModel.errorText)
-                    .foregroundColor(.white)
-                    .padding(8)
-                    .background(Color.red)
+            if let errorText = authViewModel.errorText {
+                ZStack(alignment: .top) {
+                    Text(errorText)
+                        .foregroundColor(.white)
+                        .padding(8)
+                        .background(Color.red)
+                }
             }
         }
     }

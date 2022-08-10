@@ -7,6 +7,10 @@
 
 import Foundation
 
-class MainSreenViewModel {
-    
+class MainSreenViewModel: ObservableObject {
+    let auth0User: Auth0User
+
+    init(auth0User: Auth0User) {
+        self.auth0User = auth0User
+    }
 }

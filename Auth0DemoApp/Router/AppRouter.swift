@@ -12,20 +12,22 @@ struct AppRouter: View {
 
     var body: some View {
         switch appRouterViewModel.appScreen {
-        case .auth:
-            AuthView(authViewModel: ViewModelFactory.makeAuthViewModel())
-        case .main:
-            Color.green
+        case .auth(let authViewModel):
+            AuthView(authViewModel: authViewModel)
+        case .main(let mainSreenViewModel):
+            MainSreenView(mainSreenViewModel: mainSreenViewModel)
         case .loading:
-            ProgressView()
+            Color.blue.ignoresSafeArea()
+                .overlay {
+                    ProgressView()
+                }
         }
     }
 }
 
-/*
+
 struct AppRouter_Previews: PreviewProvider {
     static var previews: some View {
-        AppRouter()
+        AppRouter(appRouterViewModel: AppRouterViewModel())
     }
 }
-*/
