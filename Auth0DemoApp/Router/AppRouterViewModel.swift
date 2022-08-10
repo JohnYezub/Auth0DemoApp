@@ -11,7 +11,7 @@ import SwiftUI
 enum AppScreen {
     case loading
     case auth(viewModel: AuthViewModel)
-    case main
+    case main(viewModel: MainSreenViewModel)
 }
 
 class AppRouterViewModel: ObservableObject {
@@ -19,6 +19,14 @@ class AppRouterViewModel: ObservableObject {
 
     init() {
         let authViewModel = ViewModelFactory.makeAuthViewModel()
+        authViewModel.onSuccess = { [weak self] auth0User in
+            guard let self = self else { return }
+
+            let mainSreenViewModel = MainSreenViewModel(auth0User: auth0User)
+            DispatchQueue.main.async {
+                self.appScreen = .main(viewModel: mainSreenViewModel)
+            }
+        }
         appScreen = .auth(viewModel: authViewModel)
     }
 }

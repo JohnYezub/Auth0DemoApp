@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		777E060428A0C4D200C0C541 /* Auth0DemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E060328A0C4D200C0C541 /* Auth0DemoAppApp.swift */; };
-		777E060628A0C4D200C0C541 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E060528A0C4D200C0C541 /* ContentView.swift */; };
 		777E060828A0C4D400C0C541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777E060728A0C4D400C0C541 /* Assets.xcassets */; };
 		777E060B28A0C4D400C0C541 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777E060A28A0C4D400C0C541 /* Preview Assets.xcassets */; };
 		777E061328A0C65E00C0C541 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = 777E061228A0C65E00C0C541 /* Auth0 */; };
@@ -22,12 +21,13 @@
 		777E062428A0E18900C0C541 /* DefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E062328A0E18900C0C541 /* DefaultStorage.swift */; };
 		777E062628A0FE6300C0C541 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E062528A0FE6300C0C541 /* AppRouter.swift */; };
 		777E062828A0FE8100C0C541 /* AppRouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E062728A0FE8100C0C541 /* AppRouterViewModel.swift */; };
+		77C60CC028A2B063005ED8BC /* MainSreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C60CBF28A2B063005ED8BC /* MainSreenView.swift */; };
+		77C60CC228A2B073005ED8BC /* MainSreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C60CC128A2B073005ED8BC /* MainSreenViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		777E060028A0C4D200C0C541 /* Auth0DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auth0DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		777E060328A0C4D200C0C541 /* Auth0DemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth0DemoAppApp.swift; sourceTree = "<group>"; };
-		777E060528A0C4D200C0C541 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		777E060728A0C4D400C0C541 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		777E060A28A0C4D400C0C541 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		777E061428A0C69300C0C541 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -40,6 +40,8 @@
 		777E062328A0E18900C0C541 /* DefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStorage.swift; sourceTree = "<group>"; };
 		777E062528A0FE6300C0C541 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		777E062728A0FE8100C0C541 /* AppRouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterViewModel.swift; sourceTree = "<group>"; };
+		77C60CBF28A2B063005ED8BC /* MainSreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSreenView.swift; sourceTree = "<group>"; };
+		77C60CC128A2B073005ED8BC /* MainSreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSreenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,17 +76,15 @@
 			isa = PBXGroup;
 			children = (
 				777E060328A0C4D200C0C541 /* Auth0DemoAppApp.swift */,
-				777E060528A0C4D200C0C541 /* ContentView.swift */,
-				777E061428A0C69300C0C541 /* ProfileView.swift */,
-				777E061628A0C6B500C0C541 /* UserModel.swift */,
-				777E061828A0C81300C0C541 /* AuthView.swift */,
-				777E061A28A0C89D00C0C541 /* AuthViewModel.swift */,
-				777E061C28A0C9D300C0C541 /* AuthService.swift */,
+				77C60CBD28A2B033005ED8BC /* Views */,
+				77C60CBA28A2B004005ED8BC /* Models */,
+				77C60CBB28A2B00F005ED8BC /* Auth */,
+				77C60CBE28A2B03E005ED8BC /* Services */,
+				77C60CC328A2B085005ED8BC /* MainScreen */,
+				77C60CBC28A2B02A005ED8BC /* Router */,
 				777E061E28A0D63D00C0C541 /* ViewModelFactory.swift */,
 				777E062128A0DC3A00C0C541 /* ViewExtensions.swift */,
 				777E062328A0E18900C0C541 /* DefaultStorage.swift */,
-				777E062528A0FE6300C0C541 /* AppRouter.swift */,
-				777E062728A0FE8100C0C541 /* AppRouterViewModel.swift */,
 				777E060728A0C4D400C0C541 /* Assets.xcassets */,
 				777E060928A0C4D400C0C541 /* Preview Content */,
 			);
@@ -97,6 +97,57 @@
 				777E060A28A0C4D400C0C541 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		77C60CBA28A2B004005ED8BC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				777E061628A0C6B500C0C541 /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		77C60CBB28A2B00F005ED8BC /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				777E061828A0C81300C0C541 /* AuthView.swift */,
+				777E061A28A0C89D00C0C541 /* AuthViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		77C60CBC28A2B02A005ED8BC /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				777E062528A0FE6300C0C541 /* AppRouter.swift */,
+				777E062728A0FE8100C0C541 /* AppRouterViewModel.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		77C60CBD28A2B033005ED8BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				777E061428A0C69300C0C541 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		77C60CBE28A2B03E005ED8BC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				777E061C28A0C9D300C0C541 /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		77C60CC328A2B085005ED8BC /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				77C60CBF28A2B063005ED8BC /* MainSreenView.swift */,
+				77C60CC128A2B073005ED8BC /* MainSreenViewModel.swift */,
+			);
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,7 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777E060628A0C4D200C0C541 /* ContentView.swift in Sources */,
+				77C60CC228A2B073005ED8BC /* MainSreenViewModel.swift in Sources */,
 				777E061928A0C81300C0C541 /* AuthView.swift in Sources */,
 				777E061B28A0C89D00C0C541 /* AuthViewModel.swift in Sources */,
 				777E062428A0E18900C0C541 /* DefaultStorage.swift in Sources */,
@@ -183,6 +234,7 @@
 				777E062828A0FE8100C0C541 /* AppRouterViewModel.swift in Sources */,
 				777E062228A0DC3A00C0C541 /* ViewExtensions.swift in Sources */,
 				777E061728A0C6B500C0C541 /* UserModel.swift in Sources */,
+				77C60CC028A2B063005ED8BC /* MainSreenView.swift in Sources */,
 				777E062628A0FE6300C0C541 /* AppRouter.swift in Sources */,
 				777E061F28A0D63D00C0C541 /* ViewModelFactory.swift in Sources */,
 				777E060428A0C4D200C0C541 /* Auth0DemoAppApp.swift in Sources */,

@@ -11,7 +11,7 @@ import SwiftUI
 protocol AuthViewDependable: ObservableObject {
     var userName: String { get set }
     var password: String { get set }
-    var errorText: String { get set }
+    var errorText: String? { get set }
     var accessType: AuthType { get }
 
     func toggleAuthScreen()
@@ -26,11 +26,12 @@ enum AuthType: String {
 class AuthViewModel: AuthViewDependable {
     @Published var userName: String = ""
     @Published var password: String = ""
-    @Published var errorText: String = ""
+    @Published var errorText: String?
 
     // Default auth view is Sign In
     @Published private(set) var accessType: AuthType = .login
 
+    // API for router
     var onSuccess: ((Auth0User) -> Void)?
 
     private let authService: AuthDependable
@@ -41,7 +42,7 @@ class AuthViewModel: AuthViewDependable {
 
     // Toggle the AuthType type
     func toggleAuthScreen() {
-        withAnimation(.easeInOut(duration: 0.5)) {
+        withAnimation(.easeInOut(duration: 0.2)) {
             switch accessType {
             case .login:
                 accessType = .signUp
@@ -61,6 +62,7 @@ class AuthViewModel: AuthViewDependable {
     }
 
     private func login() {
+        errorText = nil
         authService.login(username: "buze@ya.ru", password: "!qazOKM#", onLogin: { [weak self] result in
             switch result {
             case .success(let auth0User):
