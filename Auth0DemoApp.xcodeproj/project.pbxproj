@@ -42,6 +42,7 @@
 		777E062728A0FE8100C0C541 /* AppRouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterViewModel.swift; sourceTree = "<group>"; };
 		77C60CBF28A2B063005ED8BC /* MainSreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSreenView.swift; sourceTree = "<group>"; };
 		77C60CC128A2B073005ED8BC /* MainSreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSreenViewModel.swift; sourceTree = "<group>"; };
+		77C60CCA28A4CD32005ED8BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +76,7 @@
 		777E060228A0C4D200C0C541 /* Auth0DemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				77C60CCA28A4CD32005ED8BC /* Info.plist */,
 				777E060328A0C4D200C0C541 /* Auth0DemoAppApp.swift */,
 				77C60CBD28A2B033005ED8BC /* Views */,
 				77C60CBA28A2B004005ED8BC /* Models */,
@@ -370,9 +372,10 @@
 				DEVELOPMENT_TEAM = WZ6RX2T84D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Auth0DemoApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Auth0DemoAppApp;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -399,9 +402,10 @@
 				DEVELOPMENT_TEAM = WZ6RX2T84D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Auth0DemoApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Auth0DemoAppApp;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

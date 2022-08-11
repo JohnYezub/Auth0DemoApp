@@ -7,31 +7,43 @@
 
 import SwiftUI
 
-struct AuthView: View {
-    @StateObject var authViewModel: AuthViewModel
+struct AuthView<viewModel: AuthViewDependable>: View {
+    @StateObject var authViewModel: viewModel
 
     var body: some View {
         VStack(spacing: 8) {
-            TextField("Username", text: $authViewModel.userName)
+            TextField("Email", text: $authViewModel.email)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 4)
                 .background(Color.white)
 
-            TextField("Password", text: $authViewModel.password)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 4)
-                .background(Color.white)
+            ZStack(alignment: .trailing) {
+                TextField("Password", text: $authViewModel.password)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 4)
+                    .background(Color.white)
+                    .opacity(authViewModel.isSecuredPassword ? 0 : 1)
+
+                SecureField("Password", text: $authViewModel.password)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 4)
+                    .background(Color.white)
+                    .opacity(authViewModel.isSecuredPassword ? 1 : 0)
+
+                Image(systemName: authViewModel.isSecuredPassword ? "eye.slash" : "eye")
+                    .padding(.horizontal, 4)
+                    .onTapGesture {
+                        authViewModel.isSecuredPassword.toggle()
+                    }
+            }
 
             // Available only for Sign up view
-            switch authViewModel.accessType {
-            case .signUp:
+            if authViewModel.isConfirmPasswordAvailable {
                 TextField("Confirm password", text: $authViewModel.password)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 4)
                     .background(Color.white)
                     .transition(.opacity)
-            default:
-                EmptyView()
             }
 
             // auth login action
@@ -43,11 +55,11 @@ struct AuthView: View {
                     .animation(nil)
             }
 
-            // Switcher bewtween SignIn and SignUp
+            // Switcher between SignIn and SignUp
             Button {
                 authViewModel.toggleAuthScreen()
             } label: {
-                Text("Switch to \(authViewModel.accessType.rawValue)")
+                Text("Switch to \(authViewModel.switcherButtonText)")
                     .foregroundColor(.white)
                     .animation(nil)
             }
