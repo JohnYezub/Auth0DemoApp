@@ -9,7 +9,9 @@ import Foundation
 import Auth0
 
 protocol AuthDependable {
-    func login(username: String, password: String, onLogin: @escaping (Result<Auth0User?, AuthenticationError>) -> Void)
+    func login(email: String, password: String, onLogin: @escaping (Result<Auth0User?, AuthenticationError>) -> Void)
+    func signUp(email: String, password: String, onSignUp: @escaping (Result<Auth0User?, AuthenticationError>) -> Void)
+    func logout()
 }
 
 class AuthService: AuthDependable {
@@ -23,9 +25,10 @@ class AuthService: AuthDependable {
         self.storage = storage
     }
 
-    func login(username: String, password: String, onLogin: @escaping (Result<Auth0User?, AuthenticationError>) -> Void) {
+    /// Login existing user
+    func login(email: String, password: String, onLogin: @escaping (Result<Auth0User?, AuthenticationError>) -> Void) {
         auth0API
-            .login(usernameOrEmail: username,
+            .login(usernameOrEmail: email,
                        password: password,
                        realmOrConnection: auth0ConnectionName,
                        audience: auth0AudienceUrl,
@@ -33,17 +36,36 @@ class AuthService: AuthDependable {
         .start { [weak self] result in
             switch result {
             case .success(let credentials):
+                // Update local credentials
                 _ = self?.storage.credentialsManager.store(credentials: credentials)
-                self?.user = Auth0User(from: credentials.idToken)
-                print("Success")
+                let auth0User = Auth0User(from: credentials.idToken)
+                self?.user = auth0User
+                onLogin(.success(auth0User))
             case .failure(let error):
-                print(error.localizedDescription)
+                onLogin(.failure(error))
             }
-            let auth0User = result.map { Auth0User(from: $0.idToken) }
-            onLogin(auth0User)
+            let auth0Result = result.map { Auth0User(from: $0.idToken) }
+            onLogin(auth0Result)
         }
     }
 
+    /// Creates and login new user
+    func signUp(email: String, password: String, onSignUp: @escaping (Result<Auth0User?, AuthenticationError>) -> Void) {
+        auth0API
+            .signup(email: email,
+                    password: password,
+                    connection: auth0ConnectionName)
+            .start { [weak self] result in
+                switch result {
+                case .success(let user):
+                    self?.login(email: user.email, password: password, onLogin: onSignUp)
+                case .failure(let error):
+                    onSignUp(.failure(error))
+                }
+            }
+    }
+
+    /// Clear local stored user
     func logout() {
         storage.clean()
     }
@@ -51,11 +73,17 @@ class AuthService: AuthDependable {
 
 extension AuthService {
     class Mocked: AuthDependable {
-
-        func login(username: String, password: String, onLogin: @escaping (Result<Auth0User?, AuthenticationError>) -> Void) {
+        func login(email: String, password: String, onLogin: @escaping (Result<Auth0User?, AuthenticationError>) -> Void) {
             
         }
 
+        func signUp(email: String, password: String, onSignUp: @escaping (Result<Auth0User?, AuthenticationError>) -> Void) {
+
+        }
+
+
+        func logout() {
+        }
 
         init() {
             

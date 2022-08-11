@@ -8,7 +8,7 @@
 import JWTDecode
 
 struct Auth0User {
-    let id: String
+    let id: String?
     let name: String
     let email: String
     let emailVerified: String
@@ -33,7 +33,7 @@ struct Auth0User {
         self.updatedAt = updatedAt
     }
 
-    init(id: String, name: String, email: String, emailVerified: String, picture: String, updatedAt: String) {
+    init(id: String? = nil, name: String, email: String, emailVerified: String, picture: String, updatedAt: String) {
         self.id = id
         self.name = name
         self.email = email

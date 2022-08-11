@@ -13,7 +13,7 @@ struct ProfileView: View {
     var body: some View {
         List {
             Section(header: ProfileHeader(picture: user.picture)) {
-                ProfileCell(key: "ID", value: user.id)
+                ProfileCell(key: "ID", value: user.id ?? "")
                 ProfileCell(key: "Name", value: user.name)
                 ProfileCell(key: "Email", value: user.email)
                 ProfileCell(key: "Email verified?", value: user.emailVerified)
