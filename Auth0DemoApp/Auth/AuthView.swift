@@ -17,10 +17,25 @@ struct AuthView<viewModel: AuthViewDependable>: View {
                 .padding(.vertical, 4)
                 .background(Color.white)
 
-            TextField("Password", text: $authViewModel.password)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 4)
-                .background(Color.white)
+            ZStack(alignment: .trailing) {
+                TextField("Password", text: $authViewModel.password)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 4)
+                    .background(Color.white)
+                    .opacity(authViewModel.isSecuredPassword ? 0 : 1)
+
+                SecureField("Password", text: $authViewModel.password)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 4)
+                    .background(Color.white)
+                    .opacity(authViewModel.isSecuredPassword ? 1 : 0)
+
+                Image(systemName: authViewModel.isSecuredPassword ? "eye.slash" : "eye")
+                    .padding(.horizontal, 4)
+                    .onTapGesture {
+                        authViewModel.isSecuredPassword.toggle()
+                    }
+            }
 
             // Available only for Sign up view
             if authViewModel.isConfirmPasswordAvailable {

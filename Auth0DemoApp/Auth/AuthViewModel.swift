@@ -15,6 +15,7 @@ protocol AuthViewDependable: ObservableObject {
     var accessType: AuthType { get }
     var isConfirmPasswordAvailable: Bool { get }
     var switcherButtonText: String { get }
+    var isSecuredPassword: Bool { get set }
 
     func toggleAuthScreen()
     func getAuthorized()
@@ -29,6 +30,7 @@ class AuthViewModel: AuthViewDependable {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var errorText: String?
+    @Published var isSecuredPassword: Bool = true
 
     /// Available for signUp screen only
     var isConfirmPasswordAvailable: Bool {
