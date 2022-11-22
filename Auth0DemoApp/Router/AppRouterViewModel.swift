@@ -16,9 +16,12 @@ enum AppScreen {
 
 class AppRouterViewModel: ObservableObject {
     @Published var appScreen: AppScreen = .loading
+    private var authViewModel: AuthViewModel
 
-    init() {
-        let authViewModel = ViewModelFactory.makeAuthViewModel()
+    init(authViewModel: AuthViewModel) {
+        self.authViewModel = authViewModel
+        checkAuth()
+
         authViewModel.onSuccess = { [weak self] auth0User in
             guard let self = self else { return }
 
@@ -27,6 +30,14 @@ class AppRouterViewModel: ObservableObject {
                 self.appScreen = .main(viewModel: mainSreenViewModel)
             }
         }
+
         appScreen = .auth(viewModel: authViewModel)
+    }
+
+    private func checkAuth() {
+        let isLoggedIn = ViewModelFactory.authService.checkAuthUser()
+        print(isLoggedIn)
+
+        //TODO: get user и and switch to MainView
     }
 }

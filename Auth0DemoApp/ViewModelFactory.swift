@@ -14,4 +14,9 @@ class ViewModelFactory {
     static func makeAuthViewModel() -> AuthViewModel {
         return AuthViewModel(authService: authService)
     }
+
+    static func makeAppRouterViewModel() -> AppRouterViewModel {
+        let authViewModel = makeAuthViewModel()
+        return AppRouterViewModel(authViewModel: authViewModel)
+    }
 }

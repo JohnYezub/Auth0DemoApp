@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		773166EA292CE74D00192610 /* Auth0DemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773166E9292CE74D00192610 /* Auth0DemoAppTests.swift */; };
+		773166F5292CEA8E00192610 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773166F4292CEA8E00192610 /* ViewDidLoadModifier.swift */; };
 		777E060428A0C4D200C0C541 /* Auth0DemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E060328A0C4D200C0C541 /* Auth0DemoAppApp.swift */; };
 		777E060828A0C4D400C0C541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777E060728A0C4D400C0C541 /* Assets.xcassets */; };
 		777E060B28A0C4D400C0C541 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777E060A28A0C4D400C0C541 /* Preview Assets.xcassets */; };
@@ -25,7 +27,20 @@
 		77C60CC228A2B073005ED8BC /* MainSreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C60CC128A2B073005ED8BC /* MainSreenViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		773166EB292CE74D00192610 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 777E05F828A0C4D200C0C541 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 777E05FF28A0C4D200C0C541;
+			remoteInfo = Auth0DemoApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		773166E7292CE74D00192610 /* Auth0DemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Auth0DemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		773166E9292CE74D00192610 /* Auth0DemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth0DemoAppTests.swift; sourceTree = "<group>"; };
+		773166F4292CEA8E00192610 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 		777E060028A0C4D200C0C541 /* Auth0DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auth0DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		777E060328A0C4D200C0C541 /* Auth0DemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth0DemoAppApp.swift; sourceTree = "<group>"; };
 		777E060728A0C4D400C0C541 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +61,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		773166E4292CE74D00192610 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		777E05FD28A0C4D200C0C541 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,10 +79,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		773166E8292CE74D00192610 /* Auth0DemoAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				773166E9292CE74D00192610 /* Auth0DemoAppTests.swift */,
+			);
+			path = Auth0DemoAppTests;
+			sourceTree = "<group>";
+		};
 		777E05F728A0C4D200C0C541 = {
 			isa = PBXGroup;
 			children = (
 				777E060228A0C4D200C0C541 /* Auth0DemoApp */,
+				773166E8292CE74D00192610 /* Auth0DemoAppTests */,
 				777E060128A0C4D200C0C541 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				777E060028A0C4D200C0C541 /* Auth0DemoApp.app */,
+				773166E7292CE74D00192610 /* Auth0DemoAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +118,7 @@
 				77C60CBC28A2B02A005ED8BC /* Router */,
 				777E061E28A0D63D00C0C541 /* ViewModelFactory.swift */,
 				777E062128A0DC3A00C0C541 /* ViewExtensions.swift */,
+				773166F4292CEA8E00192610 /* ViewDidLoadModifier.swift */,
 				777E062328A0E18900C0C541 /* DefaultStorage.swift */,
 				777E060728A0C4D400C0C541 /* Assets.xcassets */,
 				777E060928A0C4D400C0C541 /* Preview Content */,
@@ -155,6 +188,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		773166E6292CE74D00192610 /* Auth0DemoAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 773166EF292CE74D00192610 /* Build configuration list for PBXNativeTarget "Auth0DemoAppTests" */;
+			buildPhases = (
+				773166E3292CE74D00192610 /* Sources */,
+				773166E4292CE74D00192610 /* Frameworks */,
+				773166E5292CE74D00192610 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				773166EC292CE74D00192610 /* PBXTargetDependency */,
+			);
+			name = Auth0DemoAppTests;
+			productName = Auth0DemoAppTests;
+			productReference = 773166E7292CE74D00192610 /* Auth0DemoAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		777E05FF28A0C4D200C0C541 /* Auth0DemoApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 777E060E28A0C4D400C0C541 /* Build configuration list for PBXNativeTarget "Auth0DemoApp" */;
@@ -182,9 +233,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					773166E6292CE74D00192610 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 777E05FF28A0C4D200C0C541;
+					};
 					777E05FF28A0C4D200C0C541 = {
 						CreatedOnToolsVersion = 13.4;
 					};
@@ -207,11 +262,19 @@
 			projectRoot = "";
 			targets = (
 				777E05FF28A0C4D200C0C541 /* Auth0DemoApp */,
+				773166E6292CE74D00192610 /* Auth0DemoAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		773166E5292CE74D00192610 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		777E05FE28A0C4D200C0C541 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -224,6 +287,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		773166E3292CE74D00192610 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				773166EA292CE74D00192610 /* Auth0DemoAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		777E05FC28A0C4D200C0C541 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,6 +308,7 @@
 				777E062228A0DC3A00C0C541 /* ViewExtensions.swift in Sources */,
 				777E061728A0C6B500C0C541 /* UserModel.swift in Sources */,
 				77C60CC028A2B063005ED8BC /* MainSreenView.swift in Sources */,
+				773166F5292CEA8E00192610 /* ViewDidLoadModifier.swift in Sources */,
 				777E062628A0FE6300C0C541 /* AppRouter.swift in Sources */,
 				777E061F28A0D63D00C0C541 /* ViewModelFactory.swift in Sources */,
 				777E060428A0C4D200C0C541 /* Auth0DemoAppApp.swift in Sources */,
@@ -246,7 +318,61 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		773166EC292CE74D00192610 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 777E05FF28A0C4D200C0C541 /* Auth0DemoApp */;
+			targetProxy = 773166EB292CE74D00192610 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		773166ED292CE74D00192610 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WZ6RX2T84D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Evgeny-Ezub.Auth0DemoAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Auth0DemoApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Auth0DemoApp";
+			};
+			name = Debug;
+		};
+		773166EE292CE74D00192610 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WZ6RX2T84D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Evgeny-Ezub.Auth0DemoAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Auth0DemoApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Auth0DemoApp";
+			};
+			name = Release;
+		};
 		777E060C28A0C4D400C0C541 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -424,6 +550,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		773166EF292CE74D00192610 /* Build configuration list for PBXNativeTarget "Auth0DemoAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				773166ED292CE74D00192610 /* Debug */,
+				773166EE292CE74D00192610 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		777E05FB28A0C4D200C0C541 /* Build configuration list for PBXProject "Auth0DemoApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

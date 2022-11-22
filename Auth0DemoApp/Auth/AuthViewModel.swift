@@ -32,7 +32,7 @@ class AuthViewModel: AuthViewDependable {
     @Published var errorText: String?
     @Published var isSecuredPassword: Bool = true
 
-    /// Available for signUp screen only
+    /// Available in signUp screen only
     var isConfirmPasswordAvailable: Bool {
         accessType == .signUp
     }
