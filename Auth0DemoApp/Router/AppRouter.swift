@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Switch app screens
 struct AppRouter: View {
     @StateObject var appRouterViewModel: AppRouterViewModel
 
@@ -27,7 +28,8 @@ struct AppRouter: View {
 
 
 struct AppRouter_Previews: PreviewProvider {
+    static let authViewModel: AuthViewModel = ViewModelFactory.makeAuthViewModel()
     static var previews: some View {
-        AppRouter(appRouterViewModel: AppRouterViewModel())
+        AppRouter(appRouterViewModel: AppRouterViewModel(authViewModel: authViewModel))
     }
 }

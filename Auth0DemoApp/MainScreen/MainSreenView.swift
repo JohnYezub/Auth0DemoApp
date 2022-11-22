@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Under construction
 struct MainSreenView: View {
     @StateObject var mainSreenViewModel: MainSreenViewModel
     var body: some View {

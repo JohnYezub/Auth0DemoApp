@@ -17,4 +17,19 @@ extension View {
             self
         }
     }
+
+    /// Calling when view first time appear.
+    func onLoad(perform action: (() -> Void)? = nil) -> some View {
+        modifier(ViewDidLoadModifier(perform: action))
+    }
+
+    /// Returns GeometryProxy which is in a background.
+    func getGeometryProxy(_ completion: @escaping (GeometryProxy) -> Void) -> some View {
+        self.background(GeometryReader { reader in
+            Color.clear
+                .onAppear {
+                    completion(reader)
+                }
+        })
+    }
 }
