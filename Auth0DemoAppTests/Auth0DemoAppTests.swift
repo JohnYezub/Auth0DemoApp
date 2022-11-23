@@ -29,5 +29,10 @@ final class Auth0DemoAppTests: XCTestCase {
         XCTAssert(authViewModel?.accessType == .login)
     }
 
-    //TODO: add good tests
+    func testErrorIsExist() throws {
+        authViewModel?.getAuthorized()
+        XCTAssert(authViewModel?.errorText != nil)
+    }
+
+    //TODO: add more tests
 }

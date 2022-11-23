@@ -9,22 +9,32 @@ import SwiftUI
 
 struct AuthView<viewModel: AuthViewDependable>: View {
     @StateObject var authViewModel: viewModel
+    private let passwordText = "Password"
+    private let confirmPasswordText = "Password"
 
     var body: some View {
         VStack(spacing: 8) {
+            if let errorText = authViewModel.errorText {
+                Text(errorText)
+                    .foregroundColor(.white)
+                    .padding(8)
+                    .background(RoundedRectangle(cornerRadius: 4)
+                        .foregroundColor(.red))
+            }
+
             TextField("Email", text: $authViewModel.email)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 4)
                 .background(Color.white)
 
             ZStack(alignment: .trailing) {
-                TextField("Password", text: $authViewModel.password)
+                TextField(passwordText, text: $authViewModel.password)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 4)
                     .background(Color.white)
                     .opacity(authViewModel.isSecuredPassword ? 0 : 1)
 
-                SecureField("Password", text: $authViewModel.password)
+                SecureField(passwordText, text: $authViewModel.password)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 4)
                     .background(Color.white)
@@ -39,11 +49,21 @@ struct AuthView<viewModel: AuthViewDependable>: View {
 
             // Available only for Sign up view
             if authViewModel.isConfirmPasswordAvailable {
-                TextField("Confirm password", text: $authViewModel.password)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 4)
-                    .background(Color.white)
-                    .transition(.opacity)
+                ZStack(alignment: .trailing) {
+                    TextField(confirmPasswordText, text: $authViewModel.password)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 4)
+                        .background(Color.white)
+                        .opacity(authViewModel.isSecuredPassword ? 0 : 1)
+
+                    SecureField(confirmPasswordText, text: $authViewModel.password)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 4)
+                        .background(Color.white)
+                        .opacity(authViewModel.isSecuredPassword ? 1 : 0)
+                }
+                .transition(.opacity)
+
             }
 
             // auth login action
@@ -67,16 +87,6 @@ struct AuthView<viewModel: AuthViewDependable>: View {
         }
         .padding(.horizontal, 16)
         .backgroundIgnoredSafeArea(Color.blue)
-        .overlay {
-            if let errorText = authViewModel.errorText {
-                ZStack(alignment: .top) {
-                    Text(errorText)
-                        .foregroundColor(.white)
-                        .padding(8)
-                        .background(Color.red)
-                }
-            }
-        }
     }
 }
 

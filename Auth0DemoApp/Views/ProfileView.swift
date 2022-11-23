@@ -34,7 +34,7 @@ struct ProfileHeader: View {
         }, placeholder: {
             Color.gray
         })
-        .frame(width: self.size, height: self.size)
+        .frame(width: size, height: size)
         .clipShape(Circle())
         .padding(.bottom, 24)
 
