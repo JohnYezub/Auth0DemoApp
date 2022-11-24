@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 protocol AuthViewDependable: ObservableObject {
     var email: String { get set }
@@ -19,6 +20,7 @@ protocol AuthViewDependable: ObservableObject {
 
     func toggleAuthScreen()
     func getAuthorized()
+    func getAuthUser() -> Auth0User?
 }
 
 enum AuthType: String {
@@ -31,6 +33,8 @@ class AuthViewModel: AuthViewDependable {
     @Published var password: String = ""
     @Published var errorText: String?
     @Published var isSecuredPassword: Bool = true
+
+    private var bag = Set<AnyCancellable>()
 
     /// Available in signUp screen only
     var isConfirmPasswordAvailable: Bool {
@@ -57,6 +61,17 @@ class AuthViewModel: AuthViewDependable {
 
     init(authService: AuthDependable) {
         self.authService = authService
+        setupBindings()
+    }
+
+    // Reset error text on typing
+    private func setupBindings() {
+        $password.sink { [weak self] passwordText in
+            guard let self = self,
+                  self.errorText != nil else { return }
+            self.errorText = nil
+        }
+        .store(in: &bag)
     }
 
     /// Toggle the AuthType type
@@ -71,8 +86,22 @@ class AuthViewModel: AuthViewDependable {
         }
     }
 
+    func checkAuthUser() -> Bool {
+        authService.checkAuthUser()
+    }
+
     /// Login or signUp action
     func getAuthorized() {
+        guard isValidEmail() else {
+            errorText = "Invalid email"
+            return
+        }
+
+        guard isValidPassword() else {
+            errorText = "Password must be longer 6 symbols"
+            return
+        }
+
         switch accessType {
         case .login:
             login()
@@ -81,19 +110,34 @@ class AuthViewModel: AuthViewDependable {
         }
     }
 
+    func getAuthUser() -> Auth0User? {
+        authService.getAuthUser()
+    }
+
+    //TODO: Make validator class
+    private func isValidEmail() -> Bool {
+        !email.isEmpty && email.count > 5
+    }
+
+    private func isValidPassword() -> Bool {
+        !password.isEmpty && password.count > 5
+    }
+
     private func login() {
         errorText = nil
         authService.login(email: email, password: password, onLogin: { [weak self] result in
-            switch result {
-            case .success(let auth0User):
-                guard let auth0User = auth0User else {
-                    self?.errorText = "failed to login"
-                    return
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let auth0User):
+                    guard let auth0User = auth0User else {
+                        self?.errorText = "failed to login"
+                        return
+                    }
+                    
+                    self?.onSuccess?(auth0User)
+                case .failure(let error):
+                    self?.errorText = error.localizedDescription
                 }
-
-                self?.onSuccess?(auth0User)
-            case .failure(let error):
-                self?.errorText = error.localizedDescription
             }
         })
     }
@@ -101,16 +145,18 @@ class AuthViewModel: AuthViewDependable {
     private func signUp() {
         errorText = nil
         authService.signUp(email: email, password: password) { [weak self] result in
-            switch result {
-            case .success(let auth0User):
-                guard let auth0User = auth0User else {
-                    print("User is nil")
-                    return
-                }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let auth0User):
+                    guard let auth0User = auth0User else {
+                        self?.errorText = "failed to sign up"
+                        return
+                    }
 
-                self?.onSuccess?(auth0User)
-            case .failure(let error):
-                self?.errorText = error.localizedDescription
+                    self?.onSuccess?(auth0User)
+                case .failure(let error):
+                    self?.errorText = error.localizedDescription
+                }
             }
         }
     }

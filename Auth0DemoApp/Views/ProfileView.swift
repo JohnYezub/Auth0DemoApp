@@ -12,7 +12,7 @@ struct ProfileView: View {
 
     var body: some View {
         List {
-            Section(header: ProfileHeader(picture: user.picture)) {
+            Section(header: ProfileHeader(pictureUrl: user.pictureUrl)) {
                 ProfileCell(key: "ID", value: user.id ?? "")
                 ProfileCell(key: "Name", value: user.name)
                 ProfileCell(key: "Email", value: user.email)
@@ -24,17 +24,17 @@ struct ProfileView: View {
 }
 
 struct ProfileHeader: View {
-    @State var picture: String
+    @State var pictureUrl: URL?
 
     private let size: CGFloat = 100
 
     var body: some View {
-        AsyncImage(url: URL(string: picture), content: { image in
+        AsyncImage(url: pictureUrl, content: { image in
             image.resizable()
         }, placeholder: {
             Color.gray
         })
-        .frame(width: self.size, height: self.size)
+        .frame(width: size, height: size)
         .clipShape(Circle())
         .padding(.bottom, 24)
 
@@ -62,3 +62,4 @@ struct ProfileCell: View {
         .background(.white)
     }
 }
+

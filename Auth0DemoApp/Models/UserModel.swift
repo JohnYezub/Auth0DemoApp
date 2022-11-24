@@ -7,13 +7,14 @@
 
 import JWTDecode
 import Auth0
+import Foundation
 
 struct Auth0User {
     let id: String?
     let name: String
     let email: String
     let emailVerified: String
-    let picture: String
+    let pictureUrl: URL?
     let updatedAt: String
 
     init?(from idToken: String) {
@@ -32,7 +33,7 @@ struct Auth0User {
         self.name = name
         self.email = email
         self.emailVerified = String(describing: emailVerified)
-        self.picture = picture
+        self.pictureUrl = URL(string: picture)
         self.updatedAt = updatedAt
     }
 
@@ -41,7 +42,20 @@ struct Auth0User {
         self.name = name
         self.email = email
         self.emailVerified = emailVerified
-        self.picture = picture
+        self.pictureUrl = URL(string: picture)
         self.updatedAt = updatedAt
+    }
+
+    init(userInfo: UserInfo) {
+        self.id = userInfo.sub
+        self.name = userInfo.name ?? ""
+        self.email = userInfo.email ?? ""
+        self.emailVerified = String(describing: userInfo.emailVerified)
+        self.pictureUrl = userInfo.picture
+        if let updatedAt = userInfo.updatedAt {
+            self.updatedAt = DateConverter.dateToString(updatedAt, dateMask: .APIDateTimeLocale)
+        } else {
+            self.updatedAt = ""
+        }
     }
 }
