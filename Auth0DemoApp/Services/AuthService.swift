@@ -12,6 +12,8 @@ protocol AuthDependable {
     func login(email: String, password: String, onLogin: @escaping (Result<Auth0User?>) -> Void)
     func signUp(email: String, password: String, onSignUp: @escaping (Result<Auth0User?>) -> Void)
     func logout()
+    func checkAuthUser() -> Bool
+    func getAuthUser() -> Auth0User?
 }
 
 class AuthService: AuthDependable {
@@ -27,6 +29,11 @@ class AuthService: AuthDependable {
 
     func checkAuthUser() -> Bool {
         storage.hasAuthorizedUser()
+    }
+
+    func getAuthUser() -> Auth0User? {
+        guard let userInfo = storage.getAuthUser() else { return nil }
+        return Auth0User(userInfo: userInfo)
     }
 
     /// Login existing user
@@ -78,6 +85,10 @@ class AuthService: AuthDependable {
 //MARK: Mocked
 extension AuthService {
     class Mocked: AuthDependable {
+        func getAuthUser() -> Auth0User? {
+            return nil
+        }
+
         func login(email: String, password: String, onLogin: @escaping (Result<Auth0User?>) -> Void) {
         }
 
@@ -85,6 +96,10 @@ extension AuthService {
         }
 
         func logout() {
+        }
+
+        func checkAuthUser() -> Bool {
+            true
         }
 
         init() {

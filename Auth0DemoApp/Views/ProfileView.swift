@@ -11,8 +11,9 @@ struct ProfileView: View {
     let user: Auth0User
 
     var body: some View {
+        let updatedAt = 
         List {
-            Section(header: ProfileHeader(picture: user.picture)) {
+            Section(header: ProfileHeader(pictureUrl: user.pictureUrl)) {
                 ProfileCell(key: "ID", value: user.id ?? "")
                 ProfileCell(key: "Name", value: user.name)
                 ProfileCell(key: "Email", value: user.email)
@@ -24,12 +25,12 @@ struct ProfileView: View {
 }
 
 struct ProfileHeader: View {
-    @State var picture: String
+    @State var pictureUrl: URL?
 
     private let size: CGFloat = 100
 
     var body: some View {
-        AsyncImage(url: URL(string: picture), content: { image in
+        AsyncImage(url: pictureUrl, content: { image in
             image.resizable()
         }, placeholder: {
             Color.gray

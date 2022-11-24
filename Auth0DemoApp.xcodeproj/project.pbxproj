@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		773166EA292CE74D00192610 /* Auth0DemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773166E9292CE74D00192610 /* Auth0DemoAppTests.swift */; };
 		773166F5292CEA8E00192610 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773166F4292CEA8E00192610 /* ViewDidLoadModifier.swift */; };
+		773166F9292F639D00192610 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773166F8292F639D00192610 /* DateConverter.swift */; };
 		777E060428A0C4D200C0C541 /* Auth0DemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E060328A0C4D200C0C541 /* Auth0DemoAppApp.swift */; };
 		777E060828A0C4D400C0C541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777E060728A0C4D400C0C541 /* Assets.xcassets */; };
 		777E060B28A0C4D400C0C541 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777E060A28A0C4D400C0C541 /* Preview Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		773166E7292CE74D00192610 /* Auth0DemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Auth0DemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		773166E9292CE74D00192610 /* Auth0DemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth0DemoAppTests.swift; sourceTree = "<group>"; };
 		773166F4292CEA8E00192610 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
+		773166F8292F639D00192610 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		777E060028A0C4D200C0C541 /* Auth0DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auth0DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		777E060328A0C4D200C0C541 /* Auth0DemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth0DemoAppApp.swift; sourceTree = "<group>"; };
 		777E060728A0C4D400C0C541 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				77C60CC328A2B085005ED8BC /* MainScreen */,
 				77C60CBC28A2B02A005ED8BC /* Router */,
 				777E061E28A0D63D00C0C541 /* ViewModelFactory.swift */,
+				773166F8292F639D00192610 /* DateConverter.swift */,
 				777E062128A0DC3A00C0C541 /* ViewExtensions.swift */,
 				773166F4292CEA8E00192610 /* ViewDidLoadModifier.swift */,
 				777E062328A0E18900C0C541 /* DefaultStorage.swift */,
@@ -405,6 +408,7 @@
 				777E061F28A0D63D00C0C541 /* ViewModelFactory.swift in Sources */,
 				777E060428A0C4D200C0C541 /* Auth0DemoAppApp.swift in Sources */,
 				777E061D28A0C9D300C0C541 /* AuthService.swift in Sources */,
+				773166F9292F639D00192610 /* DateConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

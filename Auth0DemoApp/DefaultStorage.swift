@@ -10,6 +10,10 @@ import Auth0
 
 class DefaultStorage {
 
+    /*
+     Use your own auth0ClientId and auth0Domain
+     This one are expired
+     */
     private let auth0ClientId = "b6QUSazxeEwkEuhS3oG60aQIvJm2m1uu"
     private let auth0Domain = "dev-tfz5uvuw.us.auth0.com"
 
@@ -28,6 +32,10 @@ class DefaultStorage {
 
     func hasAuthorizedUser() -> Bool {
         return credentialsManager.hasValid()
+    }
+
+    func getAuthUser() -> UserInfo? {
+        credentialsManager.user
     }
 
     func clean() {

@@ -19,6 +19,7 @@ protocol AuthViewDependable: ObservableObject {
 
     func toggleAuthScreen()
     func getAuthorized()
+    func getAuthUser() -> Auth0User?
 }
 
 enum AuthType: String {
@@ -71,6 +72,10 @@ class AuthViewModel: AuthViewDependable {
         }
     }
 
+    func checkAuthUser() -> Bool {
+        authService.checkAuthUser()
+    }
+
     /// Login or signUp action
     func getAuthorized() {
         guard isValidEmail() else {
@@ -89,6 +94,10 @@ class AuthViewModel: AuthViewDependable {
         case .signUp:
             signUp()
         }
+    }
+
+    func getAuthUser() -> Auth0User? {
+        authService.getAuthUser()
     }
 
     //TODO: Make validator class

@@ -20,24 +20,28 @@ class AppRouterViewModel: ObservableObject {
 
     init(authViewModel: AuthViewModel) {
         self.authViewModel = authViewModel
-        checkAuth()
 
-        authViewModel.onSuccess = { [weak self] auth0User in
-            guard let self = self else { return }
-
+        if checkAuthIsLoggedIn(),
+           let auth0User = authViewModel.getAuthUser() {
             let mainSreenViewModel = MainSreenViewModel(auth0User: auth0User)
-            DispatchQueue.main.async {
-                self.appScreen = .main(viewModel: mainSreenViewModel)
-            }
-        }
+            self.appScreen = .main(viewModel: mainSreenViewModel)
+            
+        } else {
+            authViewModel.onSuccess = { [weak self] auth0User in
+                guard let self = self else { return }
 
-        appScreen = .auth(viewModel: authViewModel)
+                let mainSreenViewModel = MainSreenViewModel(auth0User: auth0User)
+                DispatchQueue.main.async {
+                    self.appScreen = .main(viewModel: mainSreenViewModel)
+                }
+            }
+
+            appScreen = .auth(viewModel: authViewModel)
+        }
     }
 
-    private func checkAuth() {
-        let isLoggedIn = ViewModelFactory.authService.checkAuthUser()
-        print(isLoggedIn)
-
+    private func checkAuthIsLoggedIn() -> Bool {
+        authViewModel.checkAuthUser()
         //TODO: get user и and switch to MainView
     }
 }
