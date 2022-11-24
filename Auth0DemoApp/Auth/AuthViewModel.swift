@@ -156,13 +156,6 @@ class AuthViewModel: AuthViewDependable {
                     self?.onSuccess?(auth0User)
                 case .failure(let error):
                     self?.errorText = error.localizedDescription
-
-                    if error.isTooManyAttempts {
-                        self?.errorText = "too many attempts"
-                    }
-                    if error.isPasswordNotStrongEnough {
-                        self?.errorText = "password not strong"
-                    }
                 }
             }
         }
