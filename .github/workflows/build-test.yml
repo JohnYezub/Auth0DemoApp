@@ -22,5 +22,5 @@ jobs:
 
       - name: Test Build
         run: |
-            xcodebuild clean -project Auth0DemoApp.xcodeproj -scheme Auth0DemoApp -destination "platform=iOS Simulator,name=iPhone 8,OS=latest" "-only-testing:Auth0DemoAppTests" test
+            xcodebuild clean -workspace Auth0DemoApp.xcworkspace -scheme Auth0DemoApp -destination "platform=iOS Simulator,name=iPhone 8,OS=latest" "-only-testing:Auth0DemoAppTests" test
 
