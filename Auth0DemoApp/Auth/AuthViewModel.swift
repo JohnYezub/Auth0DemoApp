@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 protocol AuthViewDependable: ObservableObject {
     var email: String { get set }
@@ -33,6 +34,8 @@ class AuthViewModel: AuthViewDependable {
     @Published var errorText: String?
     @Published var isSecuredPassword: Bool = true
 
+    private var bag = Set<AnyCancellable>()
+
     /// Available in signUp screen only
     var isConfirmPasswordAvailable: Bool {
         accessType == .signUp
@@ -58,6 +61,17 @@ class AuthViewModel: AuthViewDependable {
 
     init(authService: AuthDependable) {
         self.authService = authService
+        setupBindings()
+    }
+
+    // Reset error text on typing
+    private func setupBindings() {
+        $password.sink { [weak self] passwordText in
+            guard let self = self,
+                  self.errorText != nil else { return }
+            self.errorText = nil
+        }
+        .store(in: &bag)
     }
 
     /// Toggle the AuthType type
@@ -142,6 +156,13 @@ class AuthViewModel: AuthViewDependable {
                     self?.onSuccess?(auth0User)
                 case .failure(let error):
                     self?.errorText = error.localizedDescription
+
+                    if error.isTooManyAttempts {
+                        self?.errorText = "too many attempts"
+                    }
+                    if error.isPasswordNotStrongEnough {
+                        self?.errorText = "password not strong"
+                    }
                 }
             }
         }

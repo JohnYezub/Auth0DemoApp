@@ -42,6 +42,5 @@ class AppRouterViewModel: ObservableObject {
 
     private func checkAuthIsLoggedIn() -> Bool {
         authViewModel.checkAuthUser()
-        //TODO: get user и and switch to MainView
     }
 }

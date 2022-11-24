@@ -11,7 +11,6 @@ struct ProfileView: View {
     let user: Auth0User
 
     var body: some View {
-        let updatedAt = 
         List {
             Section(header: ProfileHeader(pictureUrl: user.pictureUrl)) {
                 ProfileCell(key: "ID", value: user.id ?? "")
@@ -63,3 +62,4 @@ struct ProfileCell: View {
         .background(.white)
     }
 }
+

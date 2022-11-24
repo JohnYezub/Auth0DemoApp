@@ -118,6 +118,16 @@
 			path = Auth0DemoAppTests;
 			sourceTree = "<group>";
 		};
+		773166FA292F78A800192610 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				773166F8292F639D00192610 /* DateConverter.swift */,
+				777E062128A0DC3A00C0C541 /* ViewExtensions.swift */,
+				773166F4292CEA8E00192610 /* ViewDidLoadModifier.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		777E05F728A0C4D200C0C541 = {
 			isa = PBXGroup;
 			children = (
@@ -150,10 +160,8 @@
 				77C60CC328A2B085005ED8BC /* MainScreen */,
 				77C60CBC28A2B02A005ED8BC /* Router */,
 				777E061E28A0D63D00C0C541 /* ViewModelFactory.swift */,
-				773166F8292F639D00192610 /* DateConverter.swift */,
-				777E062128A0DC3A00C0C541 /* ViewExtensions.swift */,
-				773166F4292CEA8E00192610 /* ViewDidLoadModifier.swift */,
 				777E062328A0E18900C0C541 /* DefaultStorage.swift */,
+				773166FA292F78A800192610 /* Helpers */,
 				777E060728A0C4D400C0C541 /* Assets.xcassets */,
 				777E060928A0C4D400C0C541 /* Preview Content */,
 			);
